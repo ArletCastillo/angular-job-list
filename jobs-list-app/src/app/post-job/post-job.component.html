@@ -8,53 +8,66 @@
 <div class="form-group">
     <button type="button" [disabled]="form.invalid" id="btn-login" class="btn btn-success float-right" (click) = "addJob()"> 
         <i class="fas fa-bullhorn"></i>
-        Post a jobvalue
+        Post a Job
     </button>  
 </div>
+
 <h1 class="display-4">Post a Job</h1> 
-<form #form="ngForm">  
-    <div class="form-group">
-        <input name="company" #company="ngModel" [(ngModel)]="service.formData.company" class="form-control" placeholder="Company" required>
-        <!-- <div *ngIf="company.invalid && company.touched" class="validation-error">This field is required</div>-->
+
+ <!-- Start of radio buttons -->
+ <div style="margin-bottom: 1%;">
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" class="custom-control-input" id="defaultInline1" value="full-time" name="inlineDefaultRadios" [(ngModel)]="inlineDefaultRadios" mdbInput>
+        <label class="custom-control-label" for="defaultInline1">Full Time</label>
     </div>
-    <div class="form-group">
-        <input name="url" #company="ngModel" [(ngModel)]="service.formData.url" class="form-control" placeholder="URL">
+      
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" class="custom-control-input" id="defaultInline2" value="part-time" name="inlineDefaultRadios" [(ngModel)]="inlineDefaultRadios" mdbInput>
+        <label class="custom-control-label" for="defaultInline2">Part Time</label>
     </div>
-    <div class="form-group">
-        <input name="position" #company="ngModel" [(ngModel)]="service.formData.position" class="form-control" placeholder="Position" required>
+      
+    <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" class="custom-control-input" id="defaultInline3" value="freelance" name="inlineDefaultRadios" [(ngModel)]="inlineDefaultRadios" mdbInput>
+        <label class="custom-control-label" for="defaultInline3">Freelance</label>
     </div>
-    <div class="form-group">
-        <input name="location" #company="ngModel" [(ngModel)]="service.formData.location" class="form-control" placeholder="Location" required>
-    </div>
-    <div class="form-group">
-        <input name="description" #company="ngModel" [(ngModel)]="service.formData.description" class="form-control" placeholder="Description" required>
-    </div>
-    <div class="form-group">
-        <label>Type</label>
-        <div>
-            <label class="radio-inline">
-                <input type="radio" value="full-time" name="type" [(ngModel)]="type">
-                Full Time
-            </label>
-            <label class="radio-inline">
-                <input type="radio" value="part-time" name="type" [(ngModel)]="type">
-                Part Time
-            </label>
-            <label class="radio-inline">
-                <input type="radio" value="freelance" name="type" [(ngModel)]="type">
-                Freelance
-            </label>
-        </div>
-    </div>
-    <!-- <p><span>You selected: </span><b>{{ type }}</b></p>
-         <p><span>You selected: </span><b>{{ service.formData.company }}</b></p>-->
-    <p>Category</p>
-    <mat-form-field>
-        <mat-select [(value)]="selected">
-          <mat-option *ngFor="let c of category" [value]="c.value"> 
-            {{ c.viewValue}}
-          </mat-option>
-        </mat-select>
-    </mat-form-field>   
-    <!-- {{ selected }} -->
-</form>
+ </div>
+<!-- <p><span>You selected: </span><b>{{ inlineDefaultRadios }}</b></p> -->
+<!-- End of radio buttons -->
+
+<div class ="row">
+    <div class ="col-6">
+        <form #form="ngForm">  
+            <div class="form-group">
+                <input name="company" #company="ngModel" [(ngModel)]="service.formData.company" class="form-control" placeholder="Company" required>
+                <!-- <div *ngIf="company.invalid && company.touched" class="validation-error">This field is required</div>-->
+            </div>
+            <div class="form-group">
+                <input name="url" #company="ngModel" [(ngModel)]="service.formData.url" class="form-control" placeholder="URL" required>
+            </div>
+            <div class="form-group">
+                <input name="position" #company="ngModel" [(ngModel)]="service.formData.position" class="form-control" placeholder="Position" required>
+            </div>
+            <div class="form-group">
+                <input name="location" #company="ngModel" [(ngModel)]="service.formData.location" class="form-control" placeholder="Location" required>
+            </div>
+            <div class="form-group">
+                <input name="description" #company="ngModel" [(ngModel)]="service.formData.description" class="form-control" placeholder="Description" required>
+            </div>
+        
+            <!--<p><span>You selected: </span><b>{{ service.formData.company }}</b></p>-->
+            <p>Category</p>
+            <mat-form-field>
+                <mat-select [(value)]="selected">
+                  <mat-option *ngFor="let c of category" [value]="c.value"> 
+                    {{ c.viewValue }}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>   
+            <!-- {{ selected }} -->
+        </form>       
+    </div>    
+</div>
+
+<div class="content">
+    <ul id="job-list"></ul>
+</div>

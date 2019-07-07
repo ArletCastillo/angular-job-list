@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JobService } from '../shared/job.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service : JobService) { }
+
+  jobs:any[]
 
   ngOnInit() {
+    this.service.getJobValues().subscribe(list => {
+      this.jobs = list.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ...item.payload.doc.data()
+        };
+      });
+      console.log(this.jobs);
+    })
   }
 
 }

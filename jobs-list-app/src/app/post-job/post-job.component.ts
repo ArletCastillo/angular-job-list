@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { JobService } from '../shared/job.service';
 import { NgForm } from '@angular/forms';
-import { Job } from 'src/app/shared/job.model' 
+import { Job } from 'src/app/shared/job.model';
+
 export interface Category {
   value: string;
   viewValue: string;
@@ -12,6 +13,7 @@ export interface Category {
   templateUrl: './post-job.component.html',
   styleUrls: ['./post-job.component.css']
 })
+
 export class PostJobComponent implements OnInit {
   selected = 'programmer-1';
   type:string = 'full-time'; 
@@ -23,10 +25,7 @@ export class PostJobComponent implements OnInit {
 
   constructor(private service : JobService) { }
 
-  ngOnInit() {
-    this.resetForm();
-  }
-
+  //Initialize values
   resetForm(form? : NgForm){
     if(form != null)
       form.resetForm();
@@ -39,7 +38,13 @@ export class PostJobComponent implements OnInit {
       type : '',
       category: ''
     }
+  }  
+
+  ngOnInit() {
+    this.resetForm();
   }
+
+  //Add values to the Firestore collection
   addJob() {
     var x = <Job>{'company': this.service.formData.company,
     'url': this.service.formData.url,
