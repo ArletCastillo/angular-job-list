@@ -1,0 +1,35 @@
+<body>
+    <div class = "container">
+        <h1 style="text-align: center">Login</h1>
+        <div class="input-group mb-3">
+            <input #emailLoginVar type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="emailLogin">
+        </div>
+        <div class="input-group mb-3">
+            <input #passLoginVar type="password" class="form-control" placeholder="Password" aria-label="password" aria-describedby="basic-addon1" [(ngModel)]="passLogin">
+        </div>
+        <button class="btn btn-primary btn-block" type="button" id="button-addon" (click)="login()">Login</button>
+    </div>
+    <br>
+    <div class = "container">
+        <h1 style="text-align: center">SignUp</h1>
+        <div class="input-group mb-3">
+            <input #nameSignUpVar type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1" [(ngModel)]="nameSignUp">
+        </div>
+        <div class="input-group mb-3">
+            <input #emailSignupVar type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="emailSignUp">
+        </div>
+        <div class="input-group mb-3">
+            <input #passSignupVar type="password" class="form-control" placeholder="Password" aria-label="password" aria-describedby="basic-addon1" [(ngModel)]="passSignUp">
+        </div>
+        <div class = "form-group">
+            <div class = "form-control">
+                <label class="radio-inline"><input [(ngModel)] = "typeSignUp" type="radio" name="type" id = "Seeker" value = "Seeker"> Seeker</label>
+                <label class="radio-inline"><input [(ngModel)] = "typeSignUp" type="radio" name="type" id = "Poster" value = "Poster"> Poster</label>
+                <label class="radio-inline"><input [(ngModel)] = "typeSignUp" type="radio" name="type" id = "Admin" value = "Admin"> Admin</label>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-block" type="button" id="button-addon" (click)="signup()">SignUp</button>
+
+    </div>
+</body>
+

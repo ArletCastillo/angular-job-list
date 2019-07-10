@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { FirebaseListObservable } from '@angular/fire/database-deprecated'
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-root',
